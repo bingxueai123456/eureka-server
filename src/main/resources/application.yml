@@ -1,0 +1,27 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: ice.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl.defaultZone: http://ice.com:${server.port}/eureka/
+
+logging:
+  config: classpath:log4j2.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  server:
+    port: 58000
